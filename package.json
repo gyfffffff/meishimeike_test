@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "date-utils": "^1.2.21",
+    "express": "^4.18.2",
+    "iconv-lite": "^0.6.3",
+    "mysql": "^2.18.1",
+    "node-schedule": "^2.1.1",
+    "request": "^2.88.2"
+  }
+}

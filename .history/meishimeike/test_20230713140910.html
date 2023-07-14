@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="search">
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    import { createApp } from 'vue'
+    createApp({
+        data() {
+            return {
+                keyword: $("#search_ares div").eq(1).val()
+            }
+        },
+        methods: {
+            search_database: function () {
+                // alert(this.keyword);
+                alert("11")
+            }
+        }
+    }).mount("#search_area")
+</script>
+</html>

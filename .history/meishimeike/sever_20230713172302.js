@@ -1,0 +1,19 @@
+const express = require('express');
+const app = express();
+
+// 搜索提示路由处理程序
+app.get('/hello.', (req, res) => {
+    const query = req.body.query;
+
+    // 过滤匹配的搜索建议
+    const matchedSuggestions = suggestions.filter(suggestion =>
+        suggestion.toLowerCase().includes(query.toLowerCase())
+    );
+
+    res.json(matchedSuggestions);
+});
+
+// 启动服务器
+app.listen(5500, () => {
+    console.log('Server is running on port 5500');
+});

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+</head>
+
+<body>
+    <h1>Search</h1>
+    <form>
+        <div>
+            <label for="searchInput">Enter your search query:</label>
+            <input type="text" id="searchInput" placeholder="Type here">
+        </div>
+        <div id="searchSuggestions"></div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var query = $(this).val().trim();
+                if (query !== '') {
+                    $.ajax({
+                        url: '/search-suggestions', // 替换为正确的后端路由
+                        type: 'POST',
+                        data: { query: query },
+                        success: function (response) {
+                            var suggestions = response;
+                            displaySuggestions(suggestions);
+                        }
+                    });
+                } else {
+                    $('#searchSuggestions').empty();
+                }
+            });
+
+            function displaySuggestions(suggestions) {
+                var suggestionsList = $('#searchSuggestions');
+                suggestionsList.empty();
+
+                if (suggestions.length > 0) {
+                    for (var i = 0; i < suggestions.length; i++) {
+                        var suggestion = suggestions[i];
+                        var listItem = $('<p>' + suggestion + '</p>');
+                        suggestionsList.append(listItem);
+                    }
+                } else {
+                    suggestionsList.html('<p>No suggestions found.</p>');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="count++">
+        <p>{{ count }}</p>
+    </div>
+
+
+
+<script>
+    import { createApp } from 'vue'
+    createApp({
+        data(){
+            return{
+                count: 0
+            }
+        },
+        methods: {
+            search: function () {
+                // alert(this.keyword);
+                alert("11")
+            }
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>
+
